@@ -1,11 +1,2 @@
 <h2>New post</h2>
-<form action="http://localhost:3000/api/articles" method="post">
-  <label for="title">Post Title</label>
-  <Textarea @value={{this.title}} cols="50" id="title"></Textarea>
-  <br>
-  <label for="post">Post Title</label>
-  <Textarea @value={{this.post}} cols="50" rows="10" id="post"></Textarea>
-  <br>
-  {{!-- <button>Add Post</button> --}}
-  <input type="submit">
-</form>
+<ArticleForm></ArticleForm>

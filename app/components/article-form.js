@@ -1,8 +1,10 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import { inject as service } from "@ember/service";
 
 export default class ArticleFormComponent extends Component {
+  @service router;
   //set the form values here
   @tracked title;
   @tracked post;
@@ -23,10 +25,12 @@ export default class ArticleFormComponent extends Component {
           "Content-type": "application/json; charset=UTF-8",
         },
       });
-      const articleToDisplay = await saveArticle.json();
-      this.createdArticle = articleToDisplay;
+      // const articleToDisplay = await saveArticle.json();
+      // console.log("articleToDisplay"), articleToDisplay;
+      // this.createdArticle = articleToDisplay;
+      this.router.transitionTo("articles.index");
     } catch (e) {
-      console.log("There was an error.");
+      console.log("There was an error.", e);
     }
   }
 }

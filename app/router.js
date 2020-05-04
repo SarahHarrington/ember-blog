@@ -11,4 +11,5 @@ Router.map(function () {
   this.route("articles", function () {
     this.route("new");
   });
+  this.route('comments');
 });

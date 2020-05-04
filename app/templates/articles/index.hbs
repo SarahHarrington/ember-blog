@@ -1,15 +1,1 @@
-<h1 class='page-header'>Articles Index</h1>
-<div class="articles-container">
-  <LinkTo @route="articles.new" class="button new-post">Create New Post</LinkTo>
-
-  <section class="all-articles">
-    {{#each model as |article|}}
-      <h2>{{article.title}}</h2>
-      <p>{{article.text}}</p>
-
-      <button class="button">Show</button>
-      <button class="button">Edit</button>
-      <button class="button">Delete</button>
-    {{/each}}
-  </section>
-</div>
+<ArticleIndex @articles={{this.model}}></ArticleIndex>

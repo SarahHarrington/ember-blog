@@ -10,6 +10,7 @@ Router.map(function () {
   this.route("home");
   this.route("articles", function () {
     this.route("new");
+    this.route("show", { path: "/:article_id" });
   });
-  this.route('comments');
+  this.route("comments");
 });

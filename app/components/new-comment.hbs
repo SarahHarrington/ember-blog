@@ -1,0 +1,12 @@
+<div class="new-comment">
+  <h2>Add a comment:</h2>
+  <div class="comment-content">
+    <label for="comment-body">Comment:</label>
+    <Textarea @value={{this.commentBody}} name="comment-body" id="comment-body" cols="50" rows="10"></Textarea>
+
+    <label for="commenter">Commenter:</label>
+    <Textarea id="commenter" @value={{this.commenter}} />
+
+    <button class="button" {{on "click" this.saveComment}}>Save</button>
+  </div>
+</div>

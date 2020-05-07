@@ -108,6 +108,13 @@ hr {
   grid-column-start: 1;
 }
 
+.comment-content {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  width: 40%;
+  margin-left: 10px;
+}
+
 .drop-down {
 display: block;
 	font-size: 16px;
@@ -285,7 +292,6 @@ display: block;
 .relative {
   position: relative;
 }
-
 
 .screen-reader{
   position: absolute;

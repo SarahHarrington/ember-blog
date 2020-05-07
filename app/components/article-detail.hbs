@@ -1,9 +1,0 @@
-<h2>{{this.article.title}}</h2>
-<p>{{this.article.text}}</p>
-
-<button {{on "click" this.showComments}} >Show Comments</button>
-<LinkTo @route="articles">Go back</LinkTo>
-
-{{#if displayComments}}
-  <p>Display Comments!</p>
-{{/if}}

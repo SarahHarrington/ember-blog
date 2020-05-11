@@ -13,7 +13,7 @@ export default class ArticleFormComponent extends Component {
   @action
   async savePost() {
     try {
-      const saveArticle = await fetch("http://localhost:3000/api/articles", {
+      await fetch("http://localhost:3000/api/articles", {
         method: "POST",
         body: JSON.stringify({
           article: {

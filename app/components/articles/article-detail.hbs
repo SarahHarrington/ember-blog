@@ -5,14 +5,22 @@
 <button class="button" {{on "click" this.hideComments}} >Hide comments</button>
 <LinkTo role="button" class="button" @route="articles">Go back</LinkTo>
 
+<hr>
+
 {{#if noComments}}
   <p>There aren't any comments yet!</p>
 {{/if}}
 
 {{#if displayComments}}
   {{#each this.articleComments as |comment|}}
-    <Comment @comment={{comment}}></Comment>
+    <Comments::Comment
+      @comment={{comment}}
+      @onDelete={{this.commentDeleted}}>
+    </Comments::Comment>
   {{/each}}
 {{/if}}
 
-<NewComment @articleId={{this.article.id}}/>
+<hr>
+<Comments::NewComment
+  @articleId={{this.article.id}}
+  @onSave={{this.commentSaved}}/>

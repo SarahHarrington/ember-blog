@@ -2,5 +2,9 @@
 <p>{{this.articleText}}</p>
 
 {{!-- <button class="button">Show More</button> --}}
-<LinkTo role="button" class="button" @route="articles.show" @model={{@article.id}}>show more</LinkTo>
+<LinkTo
+  role="button"
+  class="button"
+  @route="articles.show"
+  @model={{@article.id}}>show more</LinkTo>
 <hr>

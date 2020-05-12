@@ -26,8 +26,14 @@ export default class NewCommentComponent extends Component {
         }
       );
       this.args.onSave(createdComment);
+      this.clearForm();
     } catch (e) {
       console.log("error saving comment", e);
     }
+  }
+
+  clearForm() {
+    this.commentBody = null;
+    this.commenter = null;
   }
 }

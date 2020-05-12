@@ -1,8 +1,11 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 
 export default class ArticleDetailComponent extends Component {
+  @service router;
+
   @tracked displayComments = true;
   @tracked noComments = false;
   @tracked articleComments = [];
@@ -43,5 +46,23 @@ export default class ArticleDetailComponent extends Component {
   @action
   commentDeleted() {
     this.getComments(this.args.article.id);
+  }
+
+  @action
+  async deleteArticle() {
+    console.log(this.args.article.id);
+    const response = await fetch(
+      `http://localhost:3000/api/articles/${this.args.article.id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    // console.log(response.status);
+    if (response.status === 200) {
+      console.log("delete successful");
+      this.router.transitionTo("articles.index");
+    } else {
+      console.log("something went wrong", response.status);
+    }
   }
 }

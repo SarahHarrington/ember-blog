@@ -2,17 +2,12 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 
 export default class CommentComponent extends Component {
-  @action async deleteComment() {
+  @action
+  async deleteComment() {
     const response = await fetch(
       `http://localhost:3000/api/comments/${this.args.comment.id}`,
       {
         method: "DELETE",
-        body: JSON.stringify({
-          comment: {
-            article_id: this.args.article_id,
-            id: this.args.comment.id,
-          },
-        }),
       }
     );
     if (response.status === 200) {

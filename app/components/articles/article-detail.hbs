@@ -1,11 +1,26 @@
 <h2>{{this.article.title}}</h2>
 <p>{{this.article.text}}</p>
 
+<LinkTo
+  role="button"
+  class="button"
+  @route="articles">
+    Go back
+</LinkTo>
 
-<button class="button" {{on "click" this.hideComments}} >Hide comments</button>
-<LinkTo role="button" class="button" @route="articles">Go back</LinkTo>
+<button
+  class="button"
+  {{on "click" this.deleteArticle}}>
+    Delete
+</button>
 
 <hr>
+
+<button
+  class="button"
+  {{on "click" this.hideComments}}>
+    Hide comments
+</button>
 
 {{#if noComments}}
   <p>There aren't any comments yet!</p>

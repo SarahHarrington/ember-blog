@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import ENV from "ember-blog/config/environment";
 
 export default class ArticleDetailComponent extends Component {
   @service router;
@@ -24,7 +25,7 @@ export default class ArticleDetailComponent extends Component {
   async getComments(articleId) {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/articles/${articleId}/comments`
+        `${ENV.host}/articles/${articleId}/comments`
       );
       const parsed = await response.json();
       this.articleComments = parsed;
@@ -50,16 +51,13 @@ export default class ArticleDetailComponent extends Component {
 
   @action
   async deleteArticle() {
-    console.log(this.args.article.id);
     const response = await fetch(
-      `http://localhost:3000/api/articles/${this.args.article.id}`,
+      `${ENV.host}/articles/${this.args.article.id}`,
       {
         method: "DELETE",
       }
     );
-    // console.log(response.status);
     if (response.status === 200) {
-      console.log("delete successful");
       this.router.transitionTo("articles.index");
     } else {
       console.log("something went wrong", response.status);

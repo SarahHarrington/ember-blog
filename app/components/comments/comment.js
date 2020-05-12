@@ -1,11 +1,13 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
+import ENV from "ember-blog/config/environment";
 
 export default class CommentComponent extends Component {
   @action
   async deleteComment() {
+    console.log(ENV.host);
     const response = await fetch(
-      `http://localhost:3000/api/comments/${this.args.comment.id}`,
+      `${ENV.host}/comments/${this.args.comment.id}`,
       {
         method: "DELETE",
       }
@@ -13,7 +15,7 @@ export default class CommentComponent extends Component {
     if (response.status === 200) {
       this.args.onDelete();
     } else {
-      console.log("oops, something went wrong");
+      console.log("oops, something went wrong", response.status);
     }
   }
 }

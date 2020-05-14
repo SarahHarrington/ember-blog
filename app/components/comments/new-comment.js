@@ -30,6 +30,12 @@ export default class NewCommentComponent extends Component {
     }
   }
 
+  @action
+  getBodyText(e) {
+    console.log("getBodyText function was called", e);
+    this.commentBody = e;
+  }
+
   clearForm() {
     this.commentBody = null;
     this.commenter = null;

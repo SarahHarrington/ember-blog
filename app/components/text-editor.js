@@ -5,6 +5,7 @@ import Quill from "quill";
 
 export default class TextEditorComponent extends Component {
   @tracked quill;
+  @tracked textBody = "";
 
   @action
   loadEditor(element) {
@@ -16,5 +17,11 @@ export default class TextEditorComponent extends Component {
       placeholder: "Compose an epic...",
       theme: "snow", // or 'bubble'
     });
+  }
+
+  @action
+  updatedBody() {
+    this.textBody = this.quill.getContents();
+    this.args.bodyUpdated(this.textBody);
   }
 }

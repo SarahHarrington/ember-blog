@@ -10,30 +10,15 @@ export default class SignupFormComponent extends Component {
   @tracked draft = {};
 
   @action
-  nameUpdated({ target: { value } }) {
-    this.draft = { ...this.draft, name: value };
-  }
-
-  @action
-  emailUpdated({ target: { value } }) {
-    this.draft = { ...this.draft, email: value };
-  }
-
-  @action
-  passwordUpdated({ target: { value } }) {
-    this.draft = { ...this.draft, password: value };
-  }
-
-  @action
-  passwordConfirmationUpdated({ target: { value } }) {
-    this.draft = { ...this.draft, passwordConfirmation: value };
+  inputUpdated(type, value) {
+    this.draft[type] = value;
   }
 
   @action
   async submitClicked(event) {
     event.preventDefault();
 
-    const { name, email, password, passwordConfirmation } = this.draft;
+    const { name, email, password, password_confirmation } = this.draft;
 
     try {
       const response = await fetch(`${ENV.host}/users`, {
@@ -43,7 +28,7 @@ export default class SignupFormComponent extends Component {
             name,
             email,
             password,
-            password_confirmation: passwordConfirmation,
+            password_confirmation,
           },
         }),
         headers: {

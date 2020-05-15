@@ -1,16 +1,17 @@
 <h1>Sign up form!!</h1>
 <form>
   <label for="">Name</label>
-  <input {{on "input" this.nameUpdated}} value={{this.draft.name}} type="text">
+  <input {{on 'input' (action (fn this.inputUpdated 'name') value='target.value')}} value={{this.draft.name}} type="text">
+
   <br>
   <label for="">Email</label>
-  <input {{on "input" this.emailUpdated}} value={{this.draft.email}} type="email">
+  <input {{on 'input' (action (fn this.inputUpdated 'email') value='target.value')}} value={{this.draft.email}} type="email">
 <br>
   <label for="">Password</label>
-  <input {{on "input" this.passwordUpdated}} value={{this.draft.password}} type="password">
+  <input {{on 'input' (action (fn this.inputUpdated 'password') value='target.value')}} value={{this.draft.password}} type="password">
 <br>
   <label for="">Confirm Password</label>
-  <input {{on "input" this.passwordConfirmationUpdated}} value={{this.draft.passwordConfirmation}} type="password">
+  <input {{on 'input' (action (fn this.inputUpdated 'password_confirmation') value='target.value')}} value={{this.draft.passwordConfirmation}} type="password">
 <br>
   <button {{on "click" this.submitClicked}} type="submit" class="button">Done</button>
 </form>

@@ -32,6 +32,7 @@ export default class NewCommentComponent extends Component {
 
   @action
   getBodyText(e) {
+    //! How do I deal with this delta thing to get it in the database?
     console.log("getBodyText function was called", e);
     this.commentBody = e;
   }

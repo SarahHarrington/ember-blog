@@ -4,8 +4,9 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import ENV from "ember-blog/config/environment";
 
-export default class SignupFormComponent extends Component {
+export default class SigninFormComponent extends Component {
   @service router;
+  @service currentUser;
 
   @tracked draft = {};
 
@@ -18,17 +19,15 @@ export default class SignupFormComponent extends Component {
   async submitClicked(event) {
     event.preventDefault();
 
-    const { name, email, password, passwordConfirmation } = this.draft;
+    const { email, password } = this.draft;
 
     try {
-      const response = await fetch(`${ENV.host}/users`, {
+      const response = await fetch(`${ENV.host}/sessions`, {
         method: "POST",
         body: JSON.stringify({
           user: {
-            name,
             email,
             password,
-            password_confirmation: passwordConfirmation,
           },
         }),
         headers: {
@@ -36,7 +35,9 @@ export default class SignupFormComponent extends Component {
         },
       });
 
-      if (response.status === 200) {
+      if (response.ok) {
+        const { token } = await response.json();
+        this.currentUser.token = token;
         this.router.transitionTo("home");
       } else {
         //! Add some type of error handling

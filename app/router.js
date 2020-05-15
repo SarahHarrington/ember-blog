@@ -13,5 +13,6 @@ Router.map(function () {
     this.route("show", { path: "/:article_id" });
   });
   this.route("comments");
-  this.route('signup');
+  this.route("signup");
+  this.route("login");
 });

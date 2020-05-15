@@ -1,0 +1,11 @@
+<form action="">
+  <label for="">Email</label>
+  <input {{on 'input'this.inputUpdated}} name="email" value={{this.draft.email}}
+    type="email">
+
+  <label for="">Password</label>
+  <input {{on 'input' this.inputUpdated}} name="password" value={{this.draft.password}}
+    type="password">
+
+  <button {{on "click" this.submitClicked}} type="submit" class="button">Done</button>
+</form>

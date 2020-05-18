@@ -4,6 +4,6 @@
   <LinkTo @route='signup'>Sign Up</LinkTo>
   <LinkTo @route='login'>Log In</LinkTo>
   {{#if this.loggedIn}}
-    <button {{on "click" this.logOutClicked}}>Log Out</button>
+    <button class="button" {{on "click" this.logOutClicked}}>Log Out</button>
   {{/if}}
 </nav>

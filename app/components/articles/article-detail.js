@@ -25,7 +25,13 @@ export default class ArticleDetailComponent extends Component {
   async getComments(articleId) {
     try {
       const response = await fetch(
-        `${ENV.host}/articles/${articleId}/comments`
+        `${ENV.host}/articles/${articleId}/comments`,
+        {
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${this.currentUser.token}`,
+          },
+        }
       );
       const parsed = await response.json();
       this.articleComments = parsed;

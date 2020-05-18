@@ -21,6 +21,7 @@ export default class NewCommentComponent extends Component {
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${this.currentUser.token}`,
         },
       });
       this.args.onSave(createdComment);
@@ -28,13 +29,6 @@ export default class NewCommentComponent extends Component {
     } catch (e) {
       console.log("error saving comment", e);
     }
-  }
-
-  @action
-  getBodyText(e) {
-    //! How do I deal with this delta thing to get it in the database?
-    console.log("getBodyText function was called", e);
-    this.commentBody = e;
   }
 
   clearForm() {

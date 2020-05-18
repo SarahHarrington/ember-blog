@@ -6,6 +6,7 @@ import ENV from "ember-blog/config/environment";
 
 export default class ArticleDetailComponent extends Component {
   @service router;
+  @service currentUser;
 
   @tracked displayComments = true;
   @tracked noComments = false;
@@ -61,6 +62,10 @@ export default class ArticleDetailComponent extends Component {
       `${ENV.host}/articles/${this.args.article.id}`,
       {
         method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${this.currentUser.token}`,
+        },
       }
     );
     if (response.status === 200) {

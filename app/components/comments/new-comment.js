@@ -2,8 +2,11 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import ENV from "ember-blog/config/environment";
+import { inject as service } from "@ember/service";
 
 export default class NewCommentComponent extends Component {
+  @service currentUser;
+
   @tracked commentBody;
   @tracked commenter;
 

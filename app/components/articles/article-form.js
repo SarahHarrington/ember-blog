@@ -6,6 +6,7 @@ import ENV from "ember-blog/config/environment";
 
 export default class ArticleFormComponent extends Component {
   @service router;
+  @service currentUser;
   //set the form values here
   @tracked title;
   @tracked post;
@@ -24,6 +25,7 @@ export default class ArticleFormComponent extends Component {
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${this.currentUser.token}`,
         },
       });
       this.router.transitionTo("articles.index");

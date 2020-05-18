@@ -6,6 +6,7 @@ import ENV from "ember-blog/config/environment";
 
 export default class SignupFormComponent extends Component {
   @service router;
+  @service currentUser;
 
   @tracked draft = {};
 
@@ -33,6 +34,7 @@ export default class SignupFormComponent extends Component {
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          Authorization: `Bearer ${this.currentUser.token}`,
         },
       });
 

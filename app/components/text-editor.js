@@ -8,8 +8,7 @@ export default class TextEditorComponent extends Component {
   @tracked textBody = "";
 
   @action
-  loadEditor(element) {
-    console.log(element);
+  loadEditor() {
     this.quill = new Quill("#editor-container", {
       modules: {
         toolbar: [[{ header: [1, 2, false] }], ["bold", "italic", "underline"]],

@@ -31,10 +31,10 @@ export default class NewCommentComponent extends Component {
   }
 
   @action
-  getBodyText(e) {
+  getBodyText({ ops }) {
     //! How do I deal with this delta thing to get it in the database?
-    console.log("getBodyText function was called", e);
-    this.commentBody = e;
+    console.log("getBodyText function was called", ops);
+    this.commentBody = ops;
   }
 
   clearForm() {

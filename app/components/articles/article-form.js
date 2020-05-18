@@ -6,7 +6,7 @@ import ENV from "ember-blog/config/environment";
 
 export default class ArticleFormComponent extends Component {
   @service router;
-  //set the form values here
+
   @tracked title;
   @tracked post;
   @tracked createdArticle = null;

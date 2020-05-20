@@ -6,9 +6,12 @@ import { inject as service } from "@ember/service";
 export default class CommentComponent extends Component {
   @service currentUser;
 
+  get comment() {
+    return this.args.comment;
+  }
+
   @action
   async deleteComment() {
-    console.log(ENV.host);
     const response = await fetch(
       `${ENV.host}/comments/${this.args.comment.id}`,
       {
@@ -19,6 +22,7 @@ export default class CommentComponent extends Component {
         },
       }
     );
+
     if (response.status === 200) {
       this.args.onDelete();
     } else {

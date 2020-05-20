@@ -1,8 +1,7 @@
-<p>{{@comment.body}}</p>
-<p>by: {{@comment.commenter}}</p>
+<p>{{{this.comment.body}}}</p>
+<p>by: {{this.comment.commenter}}</p>
 <button
   {{on "click" this.deleteComment }}
   class="button">
   Delete
 </button>
-{{log @comment}}

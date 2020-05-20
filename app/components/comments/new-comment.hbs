@@ -2,8 +2,9 @@
   <h2>Add a comment:</h2>
   <div >
     <label for="comment-body">Comment:</label>
-    {{!-- <Textarea @value={{this.commentBody}} name="comment-body" id="comment-body" cols="50" rows="10"></Textarea> --}}
-    <RichTextEditor ></RichTextEditor>
+    <RichTextEditor
+      @bodyUpdated={{this.getBodyText}}
+    ></RichTextEditor>
 
 <br>
     <label for="commenter">Commenter:</label>

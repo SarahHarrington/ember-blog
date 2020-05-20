@@ -12,16 +12,17 @@ export default class TextEditorComponent extends Component {
     ClassicEditor.create(document.querySelector("#editor-container"))
       .then((newEditor) => {
         this.editor = newEditor;
+        this.editor.model.document.on("change:data", () => {
+          this.updatedBody();
+        });
       })
       .catch((error) => {
         console.error(error);
       });
   }
 
-  @action
   updatedBody() {
     this.textBody = this.editor.getData();
-    console.log(this.textBody);
     this.args.bodyUpdated(this.textBody);
   }
 }

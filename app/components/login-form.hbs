@@ -1,11 +1,21 @@
-<form action="">
-  <label for="">Email</label>
-  <input {{on 'input'this.inputUpdated}} name="email" value={{this.draft.email}}
-    type="email">
+<form id="login-form" class="form">
+  <div class="input-block">
+    <label class="label" for="email">Email</label>
+    <input 
+      {{on 'input'this.inputUpdated}} 
+      name="email" 
+      value={{this.draft.email}}
+      type="email">
+  </div>
 
-  <label for="">Password</label>
-  <input {{on 'input' this.inputUpdated}} name="password" value={{this.draft.password}}
-    type="password">
+  <div class="input-block">
+    <label class="label" for="password">Password</label>
+    <input 
+      {{on 'input' this.inputUpdated}} 
+      name="password" 
+      value={{this.draft.password}}
+      type="password">
+  </div>
 
   <button {{on "click" this.submitClicked}} type="submit" class="button">Done</button>
 </form>

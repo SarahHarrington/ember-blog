@@ -1,10 +1,10 @@
-<h2>{{this.article.title}}</h2>
-<p>{{this.articleText}}</p>
+<div class="article-list-item">
+  <h2>{{this.article.title}}</h2>
+  <p>{{this.articleText}}</p>
 
-{{!-- <button class="button">Show More</button> --}}
-<LinkTo
-  role="button"
-  class="button"
-  @route="articles.show"
-  @model={{@article.id}}>show more</LinkTo>
-<hr>
+  <LinkTo
+    role="button"
+    class="show-article-button"
+    @route="articles.show"
+    @model={{@article.id}}>show more</LinkTo>
+</div>

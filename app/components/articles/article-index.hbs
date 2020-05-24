@@ -1,17 +1,19 @@
-<h1 class='page-header'>Articles Index</h1>
-<div class="articles-container">
-  <div class="right-side">
-    <LinkTo @route="articles.new" class="button new-post">Create New Post</LinkTo>
-    <br>
+<div class="page-header">
+  <LinkTo 
+    @route="articles.new"
+    class="link-to">
+    Create New Post
+  </LinkTo>
+  <div>
     <label for="sort-order">Sort By:</label>
     <select {{on "change" this.sortOrderChanged}} name="sort-order" id="sort-order" class="drop-down">
       <option value="DESC">Desc</option>
       <option value="TITLE">Title</option>
     </select>
   </div>
-  <section class="all-articles">
+</div>
+<main class="articles-container">
     {{#each this.articles as |article|}}
       <Articles::ArticleListItem @article={{article}}/>
     {{/each}}
-  </section>
-</div>
+</main>

@@ -1,17 +1,42 @@
 <h1>Sign up form!!</h1>
-<form>
-  <label for="">Name</label>
-  <input {{on 'input' this.inputUpdated}} name="name" value={{this.draft.name}} type="text">
-
-  <br>
-  <label for="">Email</label>
-  <input {{on 'input' this.inputUpdated}} name="email" value={{this.draft.email}} type="email">
+<form id="sign-up-form" class="form">
+  <div class="input-block">
+    <label for="name" class="label">Name</label>
+    <input 
+      {{on 'input' this.inputUpdated}} 
+      name="name" 
+      value={{this.draft.name}} 
+      type="text">
+  </div>
+<div class="input-block">
+  <label for="email" class="label">Email</label>
+  <input 
+    {{on 'input' this.inputUpdated}} 
+    name="email" 
+    value={{this.draft.email}} 
+    type="email">
+</div>
+<div class="input-block">
+  <label for="password" class="label">Password</label>
+  <input 
+    {{on 'input' this.inputUpdated}} 
+    name="password" 
+    value={{this.draft.password}} 
+    type="password">
+</div>
+<div class="input-block">
+  <label for="passwordConfirmation" class="label">Confirm Password</label>
+  <input 
+    {{on 'input' this.inputUpdated}} 
+    name="passwordConfirmation" 
+    value={{this.draft.passwordConfirmation}} 
+    type="password">
+</div>
 <br>
-  <label for="">Password</label>
-  <input {{on 'input' this.inputUpdated}} name="password" value={{this.draft.password}} type="password">
-<br>
-  <label for="">Confirm Password</label>
-  <input {{on 'input' this.inputUpdated}} name="passwordConfirmation" value={{this.draft.passwordConfirmation}} type="password">
-<br>
-  <button {{on "click" this.submitClicked}} type="submit" class="button">Done</button>
+  <button 
+    {{on "click" this.submitClicked}} 
+    type="submit" 
+    class="button">
+      Done
+  </button>
 </form>

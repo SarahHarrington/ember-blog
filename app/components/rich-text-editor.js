@@ -9,7 +9,10 @@ export default class TextEditorComponent extends Component {
 
   @action
   loadEditor() {
-    ClassicEditor.create(document.querySelector("#editor-container"))
+    ClassicEditor.create(document.querySelector("#editor-container"), {
+      toolbar: ['heading', 'bold', 'italic'],
+      
+    })
       .then((newEditor) => {
         this.editor = newEditor;
         this.editor.model.document.on("change:data", () => {

@@ -1,16 +1,15 @@
 <div class="new-comment">
   <h2>Add a comment:</h2>
   <div >
-    <label for="comment-body">Comment:</label>
+    <label for="comment-body"></label>
     <RichTextEditor
       @bodyUpdated={{this.getBodyText}}></RichTextEditor>
 
     <br>
-    
-    <label for="commenter">Commenter:</label>
-    <Textarea id="commenter" @value={{this.commenter}} />
-    
-    <br>
+    <div class="input-block">
+      <label class="label" for="commenter">Commenter</label>
+      <Textarea class="text-input" id="commenter" @value={{this.commenter}} />
+    </div>
 
     <button class="button" {{on "click" this.saveComment}}>Save</button>
   </div>

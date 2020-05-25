@@ -7,6 +7,7 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "auto",
     host: "http://localhost:3000/api",
+    unsplash_url: "https://api.unsplash.com/",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

@@ -3,13 +3,14 @@
   <div >
     <label for="comment-body">Comment:</label>
     <RichTextEditor
-      @bodyUpdated={{this.getBodyText}}
-    ></RichTextEditor>
+      @bodyUpdated={{this.getBodyText}}></RichTextEditor>
 
-<br>
+    <br>
+    
     <label for="commenter">Commenter:</label>
     <Textarea id="commenter" @value={{this.commenter}} />
-  <br>
+    
+    <br>
 
     <button class="button" {{on "click" this.saveComment}}>Save</button>
   </div>

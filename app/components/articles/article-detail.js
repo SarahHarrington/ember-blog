@@ -42,8 +42,10 @@ export default class ArticleDetailComponent extends Component {
   }
 
   @action
-  hideComments() {
+  hideComments(e) {
+    e.target.innerHTML = "Show"
     return (this.displayComments = !this.displayComments);
+
   }
 
   @action

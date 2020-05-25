@@ -1,41 +1,49 @@
-<h2>{{this.article.title}}</h2>
-<p>{{this.article.text}}</p>
+<main class="article-section">
+  <h2 class="article-title">{{this.article.title}}</h2>
+  <p>{{this.article.text}}</p>
+</main>
 
-<LinkTo
-  role="button"
-  class="button"
-  @route="articles">
-    Go back
-</LinkTo>
+<div class="article-options">
+  <LinkTo
+    role="button"
+    class="link-to"
+    @route="articles">
+      Go back
+  </LinkTo>
 
-<button
-  class="button"
-  {{on "click" this.deleteArticle}}>
-    Delete
-</button>
+  <button
+    class="button"
+    {{on "click" this.deleteArticle}}>
+      Delete
+  </button>
+</div>
+
+<hr>
+
+<div class="comments-section">
+  <button
+    class="button"
+    {{on "click" this.hideComments}}>
+      Hide
+  </button>
+
+  {{#if noComments}}
+    <p>There aren't any comments yet!</p>
+  {{/if}}
+
+  {{#if displayComments}}
+    {{#each this.articleComments as |comment|}}
+      <Comments::Comment
+        @comment={{comment}}
+        @onDelete={{this.commentDeleted}}>
+      </Comments::Comment>
+      <hr class="comment-hr">
+    {{/each}}
+  {{/if}}
+</div>
 
 <hr>
 
-<button
-  class="button"
-  {{on "click" this.hideComments}}>
-    Hide comments
-</button>
-
-{{#if noComments}}
-  <p>There aren't any comments yet!</p>
-{{/if}}
-
-{{#if displayComments}}
-  {{#each this.articleComments as |comment|}}
-    <Comments::Comment
-      @comment={{comment}}
-      @onDelete={{this.commentDeleted}}>
-    </Comments::Comment>
-  {{/each}}
-{{/if}}
-
-<hr>
 <Comments::NewComment
   @articleId={{this.article.id}}
   @onSave={{this.commentSaved}}/>

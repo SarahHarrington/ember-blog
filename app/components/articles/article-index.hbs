@@ -1,14 +1,18 @@
 <div class="page-header">
   <LinkTo 
     @route="articles.new"
-    class="link-to">
+    class="gradient-text">
     Create New Post
   </LinkTo>
-  <div>
-    <label for="sort-order">Sort By:</label>
-    <select {{on "change" this.sortOrderChanged}} name="sort-order" id="sort-order" class="drop-down">
-      <option value="DESC">Desc</option>
-      <option value="TITLE">Title</option>
+  <div class="select-block">
+    <label for="sort-order"></label>
+    <select 
+      {{on "change" this.sortOrderChanged}} 
+      name="sort-order" 
+      id="sort-order" 
+      class="select-css">
+        <option value="DESC">Desc</option>
+        <option value="TITLE">Title</option>
     </select>
   </div>
 </div>

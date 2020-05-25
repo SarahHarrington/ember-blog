@@ -1,7 +1,11 @@
-<p>{{{this.comment.body}}}</p>
-<p>by: {{this.comment.commenter}}</p>
-<button
-  {{on "click" this.deleteComment }}
-  class="button">
-  Delete
-</button>
+<div class="comment-body">
+  <div class="comment-contents">
+    <p>{{{this.comment.body}}}</p>
+    <p>by: {{this.comment.commenter}}</p>
+  </div>
+  <button
+    {{on "click" this.deleteComment }}
+    class="delete-button">
+    Delete
+  </button>  
+</div>
